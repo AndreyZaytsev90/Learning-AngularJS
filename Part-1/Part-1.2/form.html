@@ -8,12 +8,16 @@
 </head>
 <body>
 <nav ng-controller="TextAreaWithLimitCtrl" class="navbar navbar-light bg-light">
-    <span>Remaining: {{remaining()}}</span>
+    <span ng-class="{'text-warning' : shouldWarn()}">
+    Remaining: {{remaining()}}
+    </span>
     <form class="form-group">
         <label>
             <input ng-model="message" class="form-control mr-sm-2" type="text" placeholder={{message}}>
         </label>
-        <button ng-click="send()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send</button>
+        <button ng-click="send()" ng-disabled="!hasValidLength()" class="btn btn-outline-success my-2 my-sm-0"
+                type="submit">Send
+        </button>
         <button ng-click="clear()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Clear</button>
     </form>
 </nav>
