@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="03-script.js"></script>
+  <title>03</title>
+</head>
+<body ng-app="sample_03">
+<div ng-controller="emp_03">
+  Hello {{name}}! Your salary is {{salary}}
+  <div>Your Annual salary is {{getAnnualSalary()}}</div>
+</div>
+<div ng-controller="personInfo">
+  Your name is {{name}}. You live in {{address.country}} and the city of {{address.city}}
+</div>
+</body>
+</html>
