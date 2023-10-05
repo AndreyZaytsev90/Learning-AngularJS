@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sample_04">
+<head>
+    <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="04-script.js"></script>
+    <title>Scope Inheritance</title>
+</head>
+<body>
+<div ng-controller="personInfo">
+    The name of the candidate {{firstName}} {{lastName}}.
+
+    <div ng-controller="Details">
+        Current position is {{profession}}.
+        <div><br>
+            <span>Current salary is ${{salary}}.</span>
+            <span ng-controller="DesiredSalary">Desired salary - ${{desiredSalary()}}.</span>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
