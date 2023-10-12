@@ -1,6 +1,6 @@
 const app_062 = angular.module('app', [])
 
-app_062.controller("emp_06", function ($scope) {
+app_062.controller("emp_06", ["$scope", function ($scope) {
     $scope.a = 3
     $scope.b = 7
 
@@ -11,4 +11,4 @@ app_062.controller("emp_06", function ($scope) {
         $scope.sum = parseInt($scope.a) + parseInt($scope.b)
 
     }
-})
+}])

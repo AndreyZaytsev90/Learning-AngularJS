@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+<div class="card mb-1 w-75">
+  <div class="card-header" ng-show="tuner('title').show" ng-class="tuner('title').style">
+    <div class="row">
+      <div class="col">
+        <span ng-bind="article.domain.domain" class="ng-binding">aif.ru</span>
+        <!-- ngIf: article.domain.title&&article.domain.domain!=article.domain.title --><span
+              ng-bind="'/ '+ article.domain.title"
+              ng-if="article.domain.title&amp;&amp;article.domain.domain!=article.domain.title"
+              class="ng-binding ng-scope">/ аргументы и факты: новости россии и мира</span>
+      </div>
+      <div class="col-auto">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <a ng-bind="article.title || article.author.username || 'полная информация'" class="h5 ng-binding" href=""
+       ng-class="tuner('title').style" ng-click="showArticle(article)"
+       title="Открыть интерфейс детального просмотра полного содержания сообщения и сопутствующих метаданных">Пожарная
+      часть открылась после реконструкции в Пильнинском округе.</a>
+    <!-- ngIf: tuner('translate').show -->
+    <div ng-if="tuner('translate').show" class="ng-scope">
+      <span ng-class="tuner('translate').style" ng-bind="article.titleTranslate" class="ng-binding"></span>
+    </div><!-- end ngIf: tuner('translate').show -->
+
+    <!-- ngIf: tuner('cnt').show -->
+    <div ng-if="tuner('cnt').show" class="ng-scope">
+      <!-- ngIf: !tuner('title').show -->
+      <span ng-class="tuner('cnt').style">
+        <span ng-bind="(article.cnt || article.text_a||article.mmd_desc) | text : 300 " class="ng-binding">158-я пожарная часть открылась после реконструкции в селе Курмыш Пильнинского округа. Об этом сообща</span><br>
+      </span>
+    </div>
+    <div class="mt-2">
+      <!-- ngIf: tuner('publish_date').show --><span ng-class="tuner('publish_date').style"
+                                                     ng-if="tuner('publish_date').show" class="ng-scope">
+        <span ng-bind="tuner('publish_date').name+' :'" class="text-muted ng-binding">Дата публикации :</span>
+        <span ng-bind="(article.sort_date||article.mmd_upload_date||article.mmd_download_date||article.push_date) * 1000 | date:'dd-MM-yyyy HH:mm' "
+              class="ng-binding">08-09-2023 09:57</span> 
+      <!-- ngIf: !article.sort_date -->
+      </span><!-- end ngIf: tuner('publish_date').show -->
+      <!-- ngIf: tuner('source').show --><span ng-class="tuner('source').style" ng-if="tuner('source').show"
+                                               class="ng-scope">
+        <span ng-bind="tuner('source').name+' :'" class="text-muted ng-binding">Источник :</span>
+        <span ng-bind="article.domain.domain" class="ng-binding">aif.ru</span> 
+      </span><!-- end ngIf: tuner('source').show -->
+      <!-- ngIf: tuner('language').show && article.lang --><span ng-class="tuner('language').style"
+                                                                 ng-if="tuner('language').show &amp;&amp; article.lang"
+                                                                 class="ng-scope">
+        <span ng-bind="tuner('language').name+' :'" class="text-muted ng-binding">Язык :</span>
+        <span ng-bind="eXch.langByID(article.lang).lang_name" class="ng-binding">русский</span> 
+      </span><!-- end ngIf: tuner('language').show && article.lang -->
+    </div>
+    <div ng-class="tuner('person_keywords').style"
+         ng-show="tuner('person_keywords').show&amp;&amp;article.person_keywords.length">
+                <span ng-bind="tuner('person_keywords').name+': '" ng-class="text-primary"
+                      class="ng-binding">Персоны: </span>
+      <!-- ngRepeat: item in article.person_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.person_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">Петр Банников</span><!-- ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.person_keywords | limitTo : 7 -->
+      <!-- ngIf: article.person_keywords.length > 7 -->
+    </div>
+    <div ng-class="tuner('geo_keywords').style"
+         ng-show="tuner('geo_keywords').show&amp;&amp;article.geo_keywords.length">
+                <span ng-bind="tuner('geo_keywords').name+': '" ng-class="text-primary"
+                      class="ng-binding">Геообъекы: </span>
+      <!-- ngRepeat: item in article.geo_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.geo_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">Курмыш</span><!-- ngIf: !$last --><span ng-if="!$last" class="ng-scope">; </span>
+      <!-- end ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.geo_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.geo_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">Нижегородской области</span><!-- ngIf: !$last --><span ng-if="!$last"
+                                                                                                       class="ng-scope">; </span>
+      <!-- end ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.geo_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.geo_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">Пильнинском округе</span><!-- ngIf: !$last --><span ng-if="!$last"
+                                                                                                    class="ng-scope">; </span>
+      <!-- end ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.geo_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.geo_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">Нижнего Новгорода</span><!-- ngIf: !$last --><span ng-if="!$last"
+                                                                                                   class="ng-scope">; </span>
+      <!-- end ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.geo_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.geo_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">Курмыш Пильнинского округа</span><!-- ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.geo_keywords | limitTo : 7 -->
+      <!-- ngIf: article.geo_keywords.length > 7 -->
+    </div>
+
+    <div ng-class="tuner('org_keywords').style"
+         ng-show="tuner('org_keywords').show&amp;&amp;article.org_keywords.length">
+                <span ng-bind="tuner('org_keywords').name+': '" ng-class="text-primary"
+                      class="ng-binding">Организации: </span>
+      <!-- ngRepeat: item in article.org_keywords | limitTo : 7 --><span
+            ng-repeat="item in article.org_keywords | limitTo : 7" class="ng-scope">
+        <span ng-bind="item" class="ng-binding">XX</span><!-- ngIf: !$last -->
+      </span><!-- end ngRepeat: item in article.org_keywords | limitTo : 7 -->
+      <!-- ngIf: article.org_keywords.length > 7 -->
+    </div>
+
+    <div ng-class="tuner('url').style">
+      <span ng-bind="tuner('url').name" class="text-muted ng-binding">URL</span>:
+      <span ng-bind="(article.url||article.webpage_url) | text : 150" class="ng-binding">https://nn.aif.ru/gorod/pozharnaya_chast_otkrylas_posle_rekonstrukcii_v_pilninskom_okruge</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
