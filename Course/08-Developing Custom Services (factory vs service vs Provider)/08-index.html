@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="08-script.js"></script>
+    <meta charset="UTF-8">
+    <title>Custom Services</title>
+</head>
+<body ng-controller="emp_08">
+<div>Value of b is {{a}} <input type="text" ng-model="a" ng-keypress="handleKeyPress($event)"></div>
+<div>Value of b is {{b}} <input type="text" ng-model="b" ng-keypress="handleKeyPress($event)"></div>
+<hr>
+<!--<div>Value of a is <span ng-bind="a"></span></div>
+<div>Value of b is <span ng-bind="b"></span></div>-->
+<hr>
+Sum = {{sum}} <br>
+<button type="button" class="btn btn-outline-success" ng-click="doSum()">Sum</button>
+<br>
+</body>
+</html>
