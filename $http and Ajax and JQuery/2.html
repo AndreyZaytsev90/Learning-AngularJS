@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML</title>
+</head>
+<body>
+<script>
+    const xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><books><book><name>Евгений Онегин</name><type>роман</type><author birthday = \"01.06.1990\">А.C. Пушкин</author></book></books>"
+
+    console.log(xmlStr)
+
+    const parser = new DOMParser()
+    xmlDoc = parser.parseFromString(xmlStr, "text/xml")
+    console.log(xmlDoc)
+
+    console.log(xmlDoc.getElementsByTagName("name")[0].innerHTML)
+    console.log(xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue)
+
+</script>
+</body>
+</html>

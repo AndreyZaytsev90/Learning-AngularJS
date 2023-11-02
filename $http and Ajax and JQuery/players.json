@@ -1,0 +1,28 @@
+{
+  "players": [
+    {
+      "lastName": "Rooney",
+      "firstName": "Wayne",
+      "team": "Birmingham City Football Club",
+      "citizen": "England"
+    },
+    {
+      "lastName": "Ronaldo",
+      "firstName": "Cristiano",
+      "team": "Al Nassr Football Club",
+      "citizen": "Portugal"
+    },
+    {
+      "lastName": "Messi",
+      "firstName": "Lionel",
+      "team": "Inter Miami CF",
+      "citizen": "Argentina"
+    },
+    {
+      "lastName": "Mbappé",
+      "firstName": "Kylian",
+      "team": "Paris Saint-Germain Football Club",
+      "citizen": "France"
+    }
+  ]
+}

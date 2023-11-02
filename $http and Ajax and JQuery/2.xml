@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <name>Евгений Онегин</name>
+        <type>роман</type>
+        <author birthday = "01.06.1990">А.C. Пушкин</author>
+    </book>
+    <book>
+        <name>Война и Мир</name>
+        <type>роман</type>
+        <author>Л.Н. Толстой</author>
+    </book>
+    <book>
+        <name>Преступление и наказание</name>
+        <type>повесть</type>
+        <author>Ф. М. Достоевский</author>
+    </book>
+</books>

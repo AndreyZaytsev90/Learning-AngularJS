@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+
+<script>
+
+    //JSON - JavaScript Object Notation - представление объекта в строку
+
+    const Andrey = {name: 'Andrey', age: 33}
+    //             {"name":"Andrey","age":33}
+    console.log(Andrey)
+    console.log(JSON.stringify(Andrey))
+
+    const AndreyZ = {
+        name: "Andrey",
+        age: 33,
+        birthday: {
+            year: 1990,
+            month: "июнь",
+            day: 1
+        }
+    }
+
+    console.log(JSON.stringify(AndreyZ)) // {"name":"Andrey","age":33,"birthday":{"year":1990,"month":"июнь","day":1}}
+
+    const John = {
+        name: "John",
+        age: 33,
+        sayHi: function (){
+            console.log(this.name)
+        }
+    }
+    John.sayHi() // John
+    console.log(JSON.stringify(John)) // {"name":"John","age":33} - только свойства, без методов
+
+    const oreilly = {
+        name: 'O\'Reilly' // экранирование
+    }
+    console.log(oreilly.name)
+
+        // stringify - превращает объект в JSON
+        // parse - парсит (разбирает) JSON строку
+
+    const jsonStr = '{"name":"Andrey","age":33,"birthday":{"year":1990,"month":"июнь","day":1}}'
+    const res = JSON.parse(jsonStr)
+    console.log(res) // распарсился в объект
+
+    document.write(res.name + "\n") // Andrey
+    document.write(res.birthday.month) // Andrey
+
+
+
+</script>
+
+
+</body>
+</html>
