@@ -9,8 +9,8 @@ xhr.open("GET", 'players.json', true)
 xhr.send()
 
 xhr.onreadystatechange = function () { // готов ли сервер работать с нами
-    if(xhr.readyState !==4) return
-    if(xhr.status !== 200) {
+    if (xhr.readyState !== 4) return
+    if (xhr.status !== 200) {
         console.log(xhr.status + ": " + xhr.statusText)
     } else {
         console.log(xhr.responseText)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app_07">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="07-script.js"></script>
+    <meta charset="UTF-8">
+    <title>07-Ajax</title>
+</head>
+<body ng-controller="ajaxService">
+<ul>
+    <li ng-repeat="item in data">
+        <div>postId : {{item.postId}}</div>
+        <div ng-style="{'color': 'green'}">comment: {{item.body}}</div>
+        <div ng-style="{'color': 'red'}">email: {{item.email}}</div>
+    </li>
+</ul>
+</body>
+</html>
